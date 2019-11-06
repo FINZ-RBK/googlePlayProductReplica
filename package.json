@@ -1,0 +1,45 @@
+{
+  "name": "googleplayproductreplica",
+  "version": "1.0.0",
+  "description": "Google play replica using React, Node js (Express), MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FINZ-RBK/googlePlayProductReplica.git"
+  },
+  "keywords": [
+    "google",
+    "react",
+    "nodejs",
+    "mongodb",
+    "full-stack",
+    "rbk",
+    "finz"
+  ],
+  "author": "FINZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FINZ-RBK/googlePlayProductReplica/issues"
+  },
+  "homepage": "https://github.com/FINZ-RBK/googlePlayProductReplica#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "eslint": "^6.6.0",
+    "express": "^4.17.1",
+    "express-router": "0.0.1",
+    "mongoose": "^5.7.8",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router": "^5.1.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest": "^24.9.0",
+    "webpack": "^4.41.2"
+  }
+}
