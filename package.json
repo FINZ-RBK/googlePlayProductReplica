@@ -2,9 +2,11 @@
   "name": "googleplayproductreplica",
   "version": "1.0.0",
   "description": "Google play replica using React, Node js (Express), MongoDB",
-  "main": "index.js",
+  "main": "proxy-server/index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon proxy-server/index.js"
   },
   "repository": {
     "type": "git",
