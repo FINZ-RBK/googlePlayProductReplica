@@ -51,7 +51,7 @@ app.get("/reviews", function(req, res) {
 
 //Route to get all users
 app.get("/users", function(req, res) {
-  db.Review.find({})
+  db.User.find({})
   .then(function(dbUsers) {
     res.json(dbUsers);
   })
@@ -62,7 +62,7 @@ app.get("/users", function(req, res) {
 
 //Route to get all images
 app.get("/images", function(req, res) {
-  db.Review.find({})
+  db.Image.find({})
   .then(function(dbImages) {
     res.json(dbImages);
   })
