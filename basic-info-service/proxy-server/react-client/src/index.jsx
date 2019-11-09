@@ -12,7 +12,6 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Basic information</h1>
-      <div id="basic"></div>
     </div>)
   }
 }

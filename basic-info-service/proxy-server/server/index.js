@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 
 const routes = require("./routes/index");
-var PORT = 3001;
+const port = process.env.PORT || 4000;
 
 //Initialize Express
 var app = express();
@@ -19,7 +19,7 @@ app.use('/', routes);
 app.use(express.static(__dirname + '/../react-client/dist'));
 
 //Start the server 
-app.listen(PORT, function() {
+app.listen(port, function() {
   console.log('listening on port ' + PORT + '!');
 });
 
