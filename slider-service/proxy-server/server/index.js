@@ -16,9 +16,9 @@ app.use(
 app.use(express.static(__dirname + "/../react-client/dist"));
 
 app.use("/", routes);
-app.get("*", (req, res) => {
-    res.sendFile(express.static(__dirname + "/../react-client/dist/index.html"));
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(express.static(__dirname + "/../react-client/dist/index.html"));
+// });
 // UNCOMMENT FOR REACT
 // .listen(process.env.PORT || 5000)
 

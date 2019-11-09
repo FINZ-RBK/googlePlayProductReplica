@@ -4,9 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "start": "node server/index.js",
         "react-dev": "webpack -d --watch",
         "server-dev": "nodemon server/index.js",
-        "start": "node server/index.js",
         "lint": "eslint src",
         "heroku-postbuild": "webpack -p"
     },
