@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 //     request(newurl).pipe(res);
 // });
 router.get("/slider", function(req, res) {
-    request("https://rocky-meadow-47854.herokuapp.com/bundle.js", function(
+    request("https://slider-service.herokuapp.com/bundle.js", function(
         error,
         response,
         body

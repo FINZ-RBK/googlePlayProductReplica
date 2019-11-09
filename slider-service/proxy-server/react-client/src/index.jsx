@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
-import List from "./components/List.jsx";
 import "whatwg-fetch";
 
 class App extends React.Component {
