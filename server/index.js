@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname , '../react-client/dist')));
 //app.use('/', routes);
 
 // UNCOMMENT FOR REACT
-const URI = process.env.mongoURI || require(path.join(__dirname ,'../config/keys.js')).mongoURI;
+const URI = process.env.mongoURI || "mongodb+srv://fatoom:fatoom@cluster0-hft43.mongodb.net/basic-info?retryWrites=true&w=majority";
 //require(path.join(__dirname ,'../config/keys.js')).mongoURI;
 mongoose.connect(URI, {useNewUrlParser: true});
 var dbCon = mongoose.connection;
