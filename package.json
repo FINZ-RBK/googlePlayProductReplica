@@ -7,7 +7,8 @@
     "test": "npm test",
     "start": "node server/index.js",
     "server-dev": "nodemon server/index.js",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "heroku-postbulid" : "webpack -p"
   },
   "author": "Fatoom M Fayad",
   "license": "ISC",
