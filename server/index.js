@@ -28,27 +28,6 @@ dbCon.once('open', function() {
   console.log("We're connected")
 });
 
-// app.get('/products', function(req, res) {
-//   db.Product.find({})
-//   .then(function(dbProducts) {
-//     console.log(dbProducts);
-//     res.json(dbProducts);
-//   })
-//   .catch(function(err) {
-//     res.json(err);
-//   })
-// });
-
-// app.post("/product", function(req, res) {
-//   db.Product.create(req.body)
-//   .then(function(dbProduct) {
-//     //After creating the product successfully, return it back to the client
-//     res.json(dbProduct);
-//   })
-//   .catch(function(err) {
-//     res.json(err);
-//   })
-// });
 //Start the server 
 app.listen(port, function() {
   console.log('listening on port ' + port + '!');
