@@ -8,7 +8,7 @@ const port = process.env.PORT || 3001;
 const path = require('path');
 //Initialize Express
 var app = express();
-var db = require('../database');
+var db = require(path.join(__dirname ,'../database'));
 
 //Parse request body as JSON
 app.use(express.urlencoded({ extended: true}));
@@ -28,27 +28,27 @@ dbCon.once('open', function() {
   console.log("We're connected")
 });
 
-app.get('/products', function(req, res) {
-  db.Product.find({})
-  .then(function(dbProducts) {
-    console.log(dbProducts);
-    res.json(dbProducts);
-  })
-  .catch(function(err) {
-    res.json(err);
-  })
-});
+// app.get('/products', function(req, res) {
+//   db.Product.find({})
+//   .then(function(dbProducts) {
+//     console.log(dbProducts);
+//     res.json(dbProducts);
+//   })
+//   .catch(function(err) {
+//     res.json(err);
+//   })
+// });
 
-app.post("/product", function(req, res) {
-  db.Product.create(req.body)
-  .then(function(dbProduct) {
-    //After creating the product successfully, return it back to the client
-    res.json(dbProduct);
-  })
-  .catch(function(err) {
-    res.json(err);
-  })
-});
+// app.post("/product", function(req, res) {
+//   db.Product.create(req.body)
+//   .then(function(dbProduct) {
+//     //After creating the product successfully, return it back to the client
+//     res.json(dbProduct);
+//   })
+//   .catch(function(err) {
+//     res.json(err);
+//   })
+// });
 //Start the server 
 app.listen(port, function() {
   console.log('listening on port ' + port + '!');
