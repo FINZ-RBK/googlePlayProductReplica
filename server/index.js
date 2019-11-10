@@ -49,7 +49,6 @@ app.post("/product", function(req, res) {
     res.json(err);
   })
 });
-
 //Start the server 
 app.listen(port, function() {
   console.log('listening on port ' + port + '!');
