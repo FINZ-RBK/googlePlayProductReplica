@@ -8,7 +8,7 @@ const port = process.env.PORT || 3001;
 const path = require('path');
 //Initialize Express
 var app = express();
-var db = require(path.join(__dirname ,'../database'));
+var db = require(path.join(__dirname ,'../../database'));
 
 //Parse request body as JSON
 app.use(bodyParser.urlencoded({ extended: true}));
