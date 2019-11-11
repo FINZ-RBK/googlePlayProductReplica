@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import {
+  Box,
+  Button,
+  ButtonPrimary,
+  Heading,
+  Link,
+  Avatar,
+  Text
+} from '@primer/components';
+import {ThemeProvider} from 'styled-components';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,9 +20,19 @@ class App extends React.Component {
     }
   }
   render () {
-    return (<div>
-      <h1>Basic information</h1>
-    </div>)
+    const theme = {};
+    return (
+      <div>
+      <ThemeProvider theme={theme}>
+        <div>
+        <Heading fontSize={1} mb={2}>Telegram</Heading>
+        <Avatar mb={4} src="https://lh3.googleusercontent.com/ZU9cSsyIJZo6Oy7HTHiEPwZg0m2Crep-d5ZrfajqtsH-qgUXSqKpNA2FpPDTn-7qA5Q=s180-rw" size={128} />
+        <Link mb={1} href="https://play.google.com/store/apps/developer?id=Telegram+FZ-LLC">Telegram FZ-LLC</Link>
+          <ButtonPrimary>Install</ButtonPrimary>
+        </div>
+      </ThemeProvider>
+    </div>
+    )
   }
 }
 
