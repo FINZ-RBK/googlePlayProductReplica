@@ -22,7 +22,9 @@
     "nodemon": "^1.19.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-octicons": "^0.2.0",
     "react-router": "^5.1.2",
+    "react-star-ratings": "^2.3.0",
     "request": "^2.88.0",
     "styled-components": "^4.4.1"
   },
