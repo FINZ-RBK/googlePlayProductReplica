@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/play-replica');
+mongoose.connect('mongodb://localhost/basic');
 
 var db = mongoose.connection;
 

@@ -13,7 +13,7 @@ var app = express();
 //Parse request body as JSON
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
-monogoo
+
 
 //Make public static folder 
 //app.use('/', routes);

@@ -23,10 +23,7 @@ var ProductSchema = new Schema({
     suitableAge: Number,
     permisssions: String,
     report: String,
-    owner: {
-        type: Schema.Types.ObjectId,
-        ref: "User" //refernces userID
-    },
+    owner: Number,
     website: String,
     contactEmail: String,
     privacyPolicy: String
