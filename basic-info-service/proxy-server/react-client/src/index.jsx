@@ -26,7 +26,7 @@ class App extends React.Component {
       <ThemeProvider theme={theme}>
         <div>
         <Heading fontSize={1} mb={2}>Telegram</Heading>
-        <Avatar mb={4} src="https://lh3.googleusercontent.com/ZU9cSsyIJZo6Oy7HTHiEPwZg0m2Crep-d5ZrfajqtsH-qgUXSqKpNA2FpPDTn-7qA5Q=s180-rw" size={128} />
+        <Avatar mb={4} src="https://lh3.googleusercontent.com/RGVSc1UGfPtDeAgRa6ldIdehLAUK4Mw2a_oVjUlbXsswiQ_nVAq5v7WA9HtoLVCmPg=s180-rw" size={128} />
         <Link mb={1} href="https://play.google.com/store/apps/developer?id=Telegram+FZ-LLC">Telegram FZ-LLC</Link>
           <ButtonPrimary>Install</ButtonPrimary>
         </div>
