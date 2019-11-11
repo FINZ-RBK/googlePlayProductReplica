@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm test",
     "start": "node server/index.js",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js"
   },
   "author": "Fatoom M Fayad",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "express": "^4.17.1",
     "express-router": "0.0.1",
     "mongoose": "^5.7.8",
+    "nodemon": "^1.19.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router": "^5.1.2",
