@@ -1,0 +1,135 @@
+.slick-prev:before {
+    color: black;
+}
+
+.slick-next:before {
+    color: black;
+}
+
+
+/* home page */
+
+.polaroid {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.container {
+    padding: 10px;
+}
+
+.home {
+    margin-top: 50px;
+    min-width: 900px;
+    max-width: 900px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    height: 300px;
+    /* Should be removed. Only for demonstration */
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+.left,
+.right {
+    width: 15%;
+}
+
+.middle {
+    width: 70%;
+    height: 100%;
+}
+
+#logo {
+    min-width: 244px;
+    max-width: 244px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* .x {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+} */
+
+.box {
+    margin: 20px;
+    padding: 8px;
+    text-align: center;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.box1 {
+    margin: 10px;
+    padding: 8px;
+    text-align: center;
+}
+
+
+/* search bar  */
+
+form.example input[type="text"] {
+    padding: 5px;
+    font-size: 17px;
+    border: 1px solid #e1e1e1;
+    float: left;
+    width: 80%;
+    background: white;
+}
+
+
+/* Style the submit button */
+
+form.example button {
+    float: left;
+    width: 10%;
+    padding: 5px;
+    background: #2196f3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    /* Prevent double borders */
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+
+/* Clear floats */
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+    width: 80%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main-header {
+    width: 50%;
+    margin-right: 10px;
+    display: inline-block;
+}

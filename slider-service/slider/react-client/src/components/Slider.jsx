@@ -12,7 +12,7 @@ class Slider extends React.Component {
   getImages() {
     var that = this;
     $.ajax({
-      url: "http://localhost:3002/retrive",
+      url: "https://slider-service.herokuapp.com/retrive",
       type: "GET",
       success: data => {
         that.setState({
@@ -40,7 +40,7 @@ class Slider extends React.Component {
       // <div className="row">
       //   <div className="column left"></div>
       //   <div className="column right">
-      <span style={{ width: 800, display: "block" }}>
+      <span style={{ display: "block" }}>
         <Slider1 {...settings}>
           {this.state.images.map(image => (
             <div key={image.id}>
