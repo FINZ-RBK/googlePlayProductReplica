@@ -7,16 +7,13 @@ const port = process.env.PORT || 3002;
 // var items = require('../database-mongo');
 const routes = require("./routes/index");
 var app = express();
-app.use(bodyParser.json());
 app.use(
     bodyParser.urlencoded({
         extended: true
     })
 );
+app.use(bodyParser.json());
 
-// app.get("*", (req, res) => {
-//   res.sendFile(express.static(__dirname + "/../react-client/dist/index.html"));
-// });
 // UNCOMMENT FOR REACT
 app.use(express.static(__dirname + "/../react-client/dist"));
 app.use("/", routes);

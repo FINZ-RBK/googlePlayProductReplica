@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
-import List from "./components/List.jsx";
-
+import Slider from "./components/Slider.jsx";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +27,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Slider</h1>
+        {/* <h1>Slider</h1> */}
+        <Slider></Slider>
       </div>
     );
   }
