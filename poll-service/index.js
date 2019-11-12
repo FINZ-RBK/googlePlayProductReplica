@@ -8,7 +8,7 @@ const port = process.env.PORT || 3004;
 const mogoUrl = require('./config/keys').mongoUrl;
 mongoose.Promise = global.Promise;
 // mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/reviews`);
-mongoose.connect(mogoUrl, { useNewUrlParser: true });
+mongoose.connect(mogoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connection.once('open', function () { console.log('connected to db') });
 
@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes/reviewsRoutes.js')(app);
+app.use(express.static('./node_modules'));
+app.use(express.static('./client/node_modules'));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));

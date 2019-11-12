@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header";
+import PollsResults from "./components/PollsResults";
+import Footer from "./components/Footer";
+import Reviews from "./components/Reviews";
+import { Box } from "@primer/components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <Box className="serve-container">
+
+        <Box><hr /></Box>
+        <Box><Header /></Box>
+        <Box><PollsResults /></Box>
+        <Box><Reviews /></Box>
+        <Box> <Footer /></Box>
+        <Box><hr /></Box>
+      </Box >
+    );
+  }
+
 }
 
 export default App;

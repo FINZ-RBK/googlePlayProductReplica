@@ -1,7 +1,6 @@
 .App {
   text-align: center;
 }
-
 .serve-container{
   width: 620px;
   height: 645px;
@@ -15,11 +14,9 @@
   position: relative;
   text-align: left;
 }
-.progressBar{
-  background-color: white !important;
-  width: 350px !important; 
-  height: 20px !important;
-  border-radius: 0 !important;
+.rest{
+  color:#6A6A6A !important;
+  
 }
 hr{
   display: block;
