@@ -29,8 +29,9 @@ app.get("/slider", function(req, res) {
         }
     });
 });
-app.get("/Discrption", function(req, res) {
-    request("https://agile-waters-08360.herokuapp.com/app.js", function(
+
+app.get("/proxy-basic", function(req, res) {
+    request("https://basic-info-proxy.herokuapp.com/bundle.js", function(
         error,
         response,
         body
@@ -43,22 +44,37 @@ app.get("/Discrption", function(req, res) {
         }
     });
 });
+
+app.get("/Discrption", function(req, res) {
+    request("https://agile-waters-08360.herokuapp.com/bundle.js", function(
+        error,
+        response,
+        body
+    ) {
+        if (!error && response.statusCode === 200) {
+            console.log(body);
+            res.send(body);
+        } else {
+            res.end("err:" + error);
+        }
+    });
+});
 app.get("/", async function(req, res) {
     console.log("user");
     res.render("index");
-    //     console.log("req.query");
-    //     request("https://slider-service.herokuapp.com", function(
-    //         error,
-    //         response,
-    //         body
-    //     ) {
-    //         if (!error && response.statusCode === 200) {
-    //             // console.log(body);
-    //             res.send(body);
-    //         } else {
-    //             res.end("err:" + error);
-    //         }
-    //     });
+    console.log("req.query");
+    request("https://slider-service.herokuapp.com", function(
+        error,
+        response,
+        body
+    ) {
+        if (!error && response.statusCode === 200) {
+            // console.log(body);
+            res.send(body);
+        } else {
+            res.end("err:" + error);
+        }
+    });
 });
 app.listen(port, function() {
     console.log("listening on port 3009!");
