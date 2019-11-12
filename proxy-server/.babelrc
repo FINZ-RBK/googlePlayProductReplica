@@ -1,13 +1,12 @@
 {
-  "presets": ["@babel/preset-react"],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
   "plugins": [
-    [
-      "babel-plugin-styled-components",
-      {
-        "ssr": false
-        // "minify": false,
-        // "transpileTemplateLiterals": false
-      }
-    ]
+    "@babel/plugin-transform-runtime",
+    "babel-plugin-styled-components",
+    "emotion"
   ]
+
 }
