@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
 var request = require("request");
-var path = require("path");
-
-var db = require("../../../database/index.js");
+var db = require("../../database/index.js");
 router.get("/", (req, res)=> {
     res.status(200).send("Home Page");
 });
@@ -35,6 +33,7 @@ router.get("/", (req, res)=> {
     res.header("Access-Control-Allow-Origin", "*");
     console.log(req.query);
     db.retriveData(req.query, (err, data) => {
+        console.log(data);
         res.send(data);
     });
 
@@ -43,8 +42,9 @@ router.get("/", (req, res)=> {
 router.get("/basic", (req, res) => {
     request("http://localhost:3001/bundle.js", (error, response, body) => {
         if(!error && response.statusCode === 200) {
-            console.log(body);
             res.send(body);
+        } else {
+          res.end("err:" + error);
         }
     });
 });

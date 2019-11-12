@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 const URI = process.env.mongoURI || "mongodb+srv://fatoom:fatoom@cluster0-hft43.mongodb.net/basic-info?retryWrites=true&w=majority";
-mongoose.connect(URI);
+mongoose.connect(URI, {useNewUrlParser: true ,  useUnifiedTopology: true});
 
 var db = mongoose.connection;
 var Product =  require('./models/Product');
@@ -27,8 +27,5 @@ var retriveData = function(query, callback) {
 
 module.exports = {
   Product: require('./models/Product'),
-  User: require('./models/User'),
-  Review: require('./models/Review'),
-  Image: require('./models/Image'),
   retriveData: retriveData
 };

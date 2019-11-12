@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Basic from './components/basic.jsx';
+import './app.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
