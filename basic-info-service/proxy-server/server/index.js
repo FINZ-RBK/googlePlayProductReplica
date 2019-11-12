@@ -15,6 +15,7 @@ console.log(path.join(__dirname ,'../../database'));
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname , '../react-client/dist')));
+app.use("/", routes);
 
 //Make public static folder 
 // UNCOMMENT FOR REACT
@@ -25,43 +26,6 @@ var dbCon = mongoose.connection;
 dbCon.on('error', console.error.bind(console, 'connection error:'));
 dbCon.once('open', function() {
   console.log("We're connected")
-});
-
-app.get('/', function(req, res){
-  res.redirect('/:productId');
-});
-
-//Route to get all products
-app.get('/products', function(req, res) {
-  db.Product.find({})
-  .then(function(dbProducts) {
-    console.log(dbProducts);
-    res.json(dbProducts);
-  })
-  .catch(function(err) {
-    res.json(err);
-  })
-});
-
-//Route for creating a new Product
-app.post("/product", function(req, res) {
-  db.Product.create(req.body)
-  .then(function(dbProduct) {
-    //After creating the product successfully, return it back to the client
-    res.json(dbProduct);
-  })
-  .catch(function(err) {
-    res.json(err);
-  })
-});
-
-app.get("/:productId" ,function(req, res) {
-  var productId = req.query.productId;
-  db.Product.find({id: productId}).exec(function(err, product) {
-    if (err)
-      res.send(err);
-    res.send(product);
-  });
 });
 
 //Start the server 

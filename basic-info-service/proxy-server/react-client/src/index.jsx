@@ -6,35 +6,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      products: []
+      products: [],
+      id: 1
     }
-    this.updateState = this.updateState.bind(this);
   }
-  updateState(data) {
-    this.setState({stories: data});
-  }
-  getProduct(){
-    var that = this;
-    $.ajax({
-        url: '/:productId',
-        dataType: 'json',
-        data: that.state.products,
-        success: function(data){
-            console.log(data);
-            that.updateState(data);
-        },
-        error: function(err){
-            console.log("err", err);
-        }
-    });
-}
 componentDidMount(){
-  this.getProduct();
+  var path = window.location.href;
+  if(path.indexOf("itemid") >= 0) {
+    var startIndex = path.indexOf("=");
+    this.setState({
+      id: path.substring(startIndex + 1)
+    });
+  }
+  console.log(path.substring(startIndex + 1));
 }
 render() {
   return (
       <div>
-          <Basic info={this.state.products}/>
+          <Basic item_id={this.state.id}/>
       </div>
   );
 }

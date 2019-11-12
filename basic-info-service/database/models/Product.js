@@ -30,6 +30,6 @@ var ProductSchema = new Schema({
 });
 
 //Create model from the Schema
-var Product = mongoose.model("Product", ProductSchema);
+var Product = mongoose.model("products", ProductSchema);
 
 module.exports = Product;

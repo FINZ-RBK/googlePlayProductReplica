@@ -13,9 +13,46 @@ import {
   Link,
   Avatar
 } from '@primer/components';
-const Basic = (props) => (
-  <div>
-    {props.info.map(function(itm){
+
+class Basic extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {products:[]}
+    this.fetchTrans();
+    this.updateState = this.updateState.bind(this);
+  }
+  updateState(data) {
+    this.setState({stories: data});
+  }
+  getProduct(){
+    var that = this;
+    $.ajax({
+        url: 'https://localhost:3001/getProduct/?productId=' + that.props.item_id,
+        dataType: 'json',
+        data: that.state.products,
+        success: function(data){
+            console.log(data);
+            that.updateState(data);
+        },
+        error: function(err){
+            console.log("err", err);
+        }
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.item_id !== this.props.item_id) {
+      this.fetchTrans();
+    }
+  }
+  fetchTrans() {
+    console.log(this.props.item_id);
+    this.getProduct();
+  }
+  render() {
+    return(
+<div>
+    {this.state.products.map(function(itm){
         return (
           <Flex flexWrap="nowrap">
           <Box p={5}>
@@ -58,6 +95,9 @@ const Basic = (props) => (
         </Flex>      
         )
       })}   
-  </div>            
-   );
+  </div>        
+    );       
+  }
+}
+
 export default Basic;
