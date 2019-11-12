@@ -6,9 +6,6 @@
     color: black;
 }
 
-
-/* home page */
-
 .polaroid {
     width: 250px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -31,7 +28,6 @@
     float: left;
     padding: 10px;
     height: 300px;
-    /* Should be removed. Only for demonstration */
 }
 
 body {
@@ -53,20 +49,11 @@ body {
     max-width: 244px;
 }
 
-
-/* Clear floats after the columns */
-
 .row:after {
     content: "";
     display: table;
     clear: both;
 }
-
-
-/* .x {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: white;
-} */
 
 .box {
     margin: 20px;
@@ -82,9 +69,6 @@ body {
     text-align: center;
 }
 
-
-/* search bar  */
-
 form.example input[type="text"] {
     padding: 5px;
     font-size: 17px;
@@ -93,9 +77,6 @@ form.example input[type="text"] {
     width: 80%;
     background: white;
 }
-
-
-/* Style the submit button */
 
 form.example button {
     float: left;
@@ -106,16 +87,12 @@ form.example button {
     font-size: 17px;
     border: 1px solid grey;
     border-left: none;
-    /* Prevent double borders */
     cursor: pointer;
 }
 
 form.example button:hover {
     background: #0b7dda;
 }
-
-
-/* Clear floats */
 
 form.example::after {
     content: "";

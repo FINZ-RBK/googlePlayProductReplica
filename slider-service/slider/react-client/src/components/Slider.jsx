@@ -8,11 +8,15 @@ class Slider extends React.Component {
   constructor(props) {
     super(props);
     this.state = { images: [] };
+    this.fetchTrans();
   }
   getImages() {
     var that = this;
     $.ajax({
-      url: "https://slider-service.herokuapp.com/retrive",
+      url:
+        "https://slider-service.herokuapp.com/retrive?product_id=" +
+        that.props.item_id,
+      // "http://localhost:3002/retrive/?product_id=" + this.props.item_id,
       type: "GET",
       success: data => {
         that.setState({
@@ -24,6 +28,18 @@ class Slider extends React.Component {
   }
 
   componentDidMount() {
+    // this.getImages();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.item_id !== this.props.item_id) {
+      this.fetchTrans();
+    }
+  }
+
+  fetchTrans() {
+    // this.props.fetchTrans(this.props.item_id);
+    console.log(this.props.item_id);
     this.getImages();
   }
 
@@ -37,9 +53,6 @@ class Slider extends React.Component {
     };
 
     return (
-      // <div className="row">
-      //   <div className="column left"></div>
-      //   <div className="column right">
       <span style={{ display: "block" }}>
         <Slider1 {...settings}>
           {this.state.images.map(image => (
@@ -49,24 +62,7 @@ class Slider extends React.Component {
           ))}
         </Slider1>
       </span>
-      //   </div>
-      //   <div className="column middle"> </div>
-      // </div>
     );
   }
 }
 export default Slider;
-// <div style={{ backgroundColor: "cyan" }}>
-// <span style={{ width: 250, display: "block", backgroundColor: "red" }}>
-//   edrfererer
-// </span>
-// <span style={{ width: 800, display: "block" }}>
-//   <Slider1 {...settings}>
-//     {this.state.images.map(image => (
-//       <div key={image.id}>
-//         <img src={image.url} height="370px"></img>
-//       </div>
-//     ))}
-//   </Slider1>
-// </span>
-// </div>
