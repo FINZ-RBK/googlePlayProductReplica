@@ -4,18 +4,22 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-//Using Schema constructor, create a UserSchema
+//Using Schema constructor, create a ReviewSchema
 var ReviewSchema = new Schema({
-    id: {
-        type: Number,
-        required: true
+    stars: Number,
+    comment: String,
+    noLikes: Number,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User" //refernces userID
     },
-    email: String,
-    name: String,
-    image: String
+    product: {
+        type: Schema.Types.ObjectId,
+        ref: "Product" //refernces userID
+    }
 });
 
 //Create model from the Schema
-var User = mongoose.model("User", UserSchema);
+var Review = mongoose.model("Review", ReviewSchema);
 
-module.exports = User;
+module.exports = Review;

@@ -8,8 +8,8 @@ const port = process.env.PORT || 3001;
 const path = require('path');
 //Initialize Express
 var app = express();
-// var db = require('../../database');
-// console.loßg(path.join(__dirname ,'../../database'));
+var db = require('../../database');
+console.log(path.join(__dirname ,'../../database'));
 
 //Parse request body as JSON
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -28,7 +28,7 @@ dbCon.once('open', function() {
 });
 
 app.get('/', function(req, res){
-  res.redirect('/products');
+  res.redirect('/:productId');
 });
 
 //Route to get all products
@@ -53,6 +53,15 @@ app.post("/product", function(req, res) {
   .catch(function(err) {
     res.json(err);
   })
+});
+
+app.get("/:productId" ,function(req, res) {
+  var productId = req.query.productId;
+  db.Product.find({id: productId}).exec(function(err, product) {
+    if (err)
+      res.send(err);
+    res.send(product);
+  });
 });
 
 //Start the server 
