@@ -6,8 +6,8 @@ import PollsRepresentation from "./PollsRepresentation";
 class PollsResults extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
     }
+
     render() {
         return (
             <Flex flexWrap="nowrap" width="100%">

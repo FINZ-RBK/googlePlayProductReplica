@@ -7,33 +7,37 @@ import Center from "react-center";
 class ReviewItem extends React.Component {
     constructor(props) {
         super(props);
+
     }
     render() {
+        var date = new Date(this.props.item.inserted);
+        console.log(date);
+        var stringDate = date.getMonth() + " " + date.getDate() + ", " + date.getFullYear();
         return (
             <Flex flexWrap="nowrap" width="100%">
                 <Box width="9%" >
-                    <Avatar src="https://avatars.githubusercontent.com/desktop" size={48} />
+                    <Avatar src={this.props.item.userAvatar} size={48} />
                 </Box>
                 <Box width="78%">
                     <Box>
-                        am ah
+                        {this.props.item.userName}
                     </Box>
                     <Box>
                         <Flex flexWrap="nowrap" >
                             <Box mr={1} >
                                 <StarRatings
-                                    rating={4.6}
+                                    rating={this.props.item.rate}
                                     starDimension="10px"
                                     starSpacing="2px"
                                 />
                             </Box>
                             <Box  >
-                                May 8, 2019
+                                {stringDate}
                             </Box>
                         </Flex>
                     </Box>
                     <Box>
-                        <Text as='p'  >  تطبيق ممتاز وبارك الله فيكم وجزاكم الله خيرا.. يا ليت تضيفون للتطبيق السبحة</Text>
+                        <Text as='p'  >{this.props.item.comment}</Text>
                     </Box>
                 </Box>
                 <Box width="13%" className="rest">
@@ -47,7 +51,7 @@ class ReviewItem extends React.Component {
                                 </Box>
                                 <Box >
                                     <Center>
-                                        <Text fontSize="12px">1</Text>
+                                        <Text fontSize="12px"> {this.props.item.likesCount}</Text>
                                     </Center>
                                 </Box>
                             </Box>

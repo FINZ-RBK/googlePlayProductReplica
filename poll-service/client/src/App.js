@@ -7,30 +7,45 @@ import Reviews from "./components/Reviews";
 import { Box } from "@primer/components";
 import axios from 'axios';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFetching: false,
       reviews: {}
     };
-
   }
-  fetchDataWithAxios = (id) => {
-    this.setState({ ...this.state, isFetching: true });
-    axios.axios.get(`/reviewsApi/reviewById/${id}`)
+
+  fetchData() {
+    var path = window.location.href;
+    var id;
+    if (path.indexOf("itemid") >= 0) {
+      var startIndex = path.indexOf("=");
+      id = path.substring(startIndex + 1)
+    } else {
+      id = 1;
+    }
+    var that = this;
+    axios.get(`/reviewsApi/reviewById/${id}`)
       .then(response => {
-        this.setState({ reviews: response.data, isFetching: false })
+        console.log('hello', response.data);
+        that.setState({
+          reviews: response.data
+        })
       })
       .catch(e => {
         console.log(e);
-        this.setState({ ...this.state, isFetching: false });
       });
-  };
-  fetchData = this.fetchDataWithAxios;
+  }
+  componentDidMount() {
+    this.fetchData();
+  }
+  componentDidUpdate(prev) {
+    if (prev.reviews !== this.props.reviews) {
+      this.fetchData();
+    }
+  }
   render() {
-
+    console.log("reveiws", this.state.reviews);
     return (
       <Box className="serve-container">
 

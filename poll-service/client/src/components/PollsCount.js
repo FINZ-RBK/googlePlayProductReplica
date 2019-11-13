@@ -8,18 +8,28 @@ import Center from "react-center";
 class PollsCount extends React.Component {
     constructor(props) {
         super(props);
-
     }
     render() {
+        var total;
+        var rate;
+        if (Object.keys(this.props.data).length !== 0) {
+            console.log(this.props)
+            total = this.props.data.ones + this.props.data.tows + this.props.data.threes + this.props.data.fours + this.props.data.fives;
+            rate = ((this.props.data.ones * 1) + (this.props.data.tows * 2) + (this.props.data.threes * 3) + (this.props.data.fours * 4) + (this.props.data.fives * 5)) / total;
+            console.log('total', total);
+            console.log('rate', rate);
+        }
         return (
             <Box width="100%" >
                 <Box width="100%" height="50px">
-                    <Heading className="rate" >{(this.props.rate) ? this.props.rate : "4.6"}</Heading>
+                    <Center height="20px">
+                        <Heading className="rate" >{(rate) ? rate : 4.6}</Heading>
+                    </Center>
                 </Box>
                 <Box width="100%" >
                     <Center height="20px">
                         <StarRatings
-                            rating={4.6}
+                            rating={(rate) ? rate : 4.6}
                             starDimension="20px"
                             starSpacing="5px"
                         />
@@ -33,7 +43,7 @@ class PollsCount extends React.Component {
                                 <Text ><CircleOcticon icon={Person} size={16} bg="white" color="#6A6A6A" verticalAlign="middle" /></Text>
                             </Box>
                             <Box>
-                                <Text >{(this.props.voters) ? this.props.voters : "267"} Total</Text>
+                                <Text >{(total) ? total : "267"} Total</Text>
                             </Box>
                         </Flex>
                     </Center>
