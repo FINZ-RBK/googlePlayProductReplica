@@ -10,7 +10,7 @@ var UserSchema = new Schema({
         type: Number,
         required: true
     },
-    email: String,
+    state: String,
     name: String,
     image: String
 });

@@ -6,13 +6,49 @@ var Schema = mongoose.Schema;
 
 //Using Schema constructor, create a UserSchema
 var ReviewSchema = new Schema({
-    id: {
+    productId: {
         type: Number,
         required: true
     },
-    email: String,
-    name: String,
-    image: String
+    productName: {
+        type: String,
+        required: true
+    },
+    userAvatar: {
+        type: String,
+        required: true
+    },
+    userName: {
+        type: String,
+        required: true
+    },
+    userId: {
+        type: Number,
+        required: true
+    },
+
+    rate: {
+        type: Number,
+        min: 1,
+        max: 5,
+        required: true
+    },
+    comment: {
+        type: String,
+        required: true
+    },
+    state: {
+        type: Number,
+        required: true
+    },
+    likesCount: {
+        type: Number,
+        required: true
+    },
+    inserted: {
+        type: Date,
+        required: true
+    }
 });
 
 //Create model from the Schema

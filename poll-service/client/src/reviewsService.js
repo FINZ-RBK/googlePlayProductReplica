@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export default {
-    getAll: async () => {
-        let res = await axios.get(`/reviewsApi/review/1`);
+    getById: async (id) => {
+        let res = await axios.get(`/reviewsApi/reviewById/${id}`);
         return res.data || [];
     }
 }

@@ -9,7 +9,7 @@ class Reviews extends React.Component {
     render() {
         return (
             <Box width="100%" mt={2}>
-                {/* loop throught the reviews form database to generate one foreach item */}
+                {/* loop through the reviews form database to generate one foreach item */}
                 <Box >
                     <ReviewItem />
                 </Box>

@@ -7,11 +7,14 @@
     "@primer/octicons-react": "^9.2.0",
     "@primer/primitives": "^2.0.0",
     "axios": "^0.19.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "http-proxy-middleware": "^0.20.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-rating": "^2.0.1",
     "react-scripts": "3.2.0",
+    "react-test-renderer": "^16.11.0",
     "styled-components": "^4.4.1"
   },
   "scripts": {

@@ -6,15 +6,16 @@ import PollsRepresentation from "./PollsRepresentation";
 class PollsResults extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props);
     }
     render() {
         return (
             <Flex flexWrap="nowrap" width="100%">
                 <Box pt={3} width="30%" >
-                    <PollsCount />
+                    <PollsCount data={(this.props.results) ? this.props.results : ""} />
                 </Box>
                 <Box pt={3} width="70%">
-                    <PollsRepresentation />
+                    <PollsRepresentation data={(this.props.results) ? this.props.results : ""} />
                 </Box>
             </Flex>
         );
