@@ -18,7 +18,7 @@ class App extends React.Component {
             slider proxy
           </div>
           <div id="Discrption">description proxy</div>
-          <div className="box" id="poll-proxy">
+          <div className="box" id="poll">
             poll proxy
           </div>
         </div>
