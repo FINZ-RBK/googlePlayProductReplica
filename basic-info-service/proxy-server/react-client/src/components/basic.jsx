@@ -54,21 +54,21 @@ class Basic extends React.Component{
         return (
           <Flex key = {itm.id} flexWrap="nowrap">
           <Box p={5}>
-            <Avatar mb={4} src={itm.mainImage} size={128} />
+            <Avatar mb={4} src={itm.mainImage} size={150} />
           </Box>
-          <Box p={5}>
-          <Box> <Heading fontSize={3} mb={2} color="#212121">{itm.title}</Heading></Box>
+          <Box p={5} mb={3}>
+          <Box mb={3}> <Heading fontSize={3} color="#212121">{itm.title}</Heading></Box>
           <Box>
-          <Grid gridTemplateColumns="repeat(2, auto)">
-              <Box><span><Link mb={1} href="/store/apps/developer?id=Awrady" color="#33691e" fontWeight="700">{itm.description}</Link></span></Box>
-              <Box><span><Link mb={2} href="/store/apps/category/LIFESTYLE" color="#33691e" fontWeight="700">{itm.category}</Link></span></Box>
-            </Grid>
+          <Grid gridTemplateColumns="repeat(2, auto)" mb={2}>
+              <Box><span><Link href={itm.descURL} color="#33691e" fontWeight="700">{itm.description}</Link></span></Box>
+              <Box><span><Link href={itm.catURL} color="#33691e" fontWeight="700">{itm.category}</Link></span></Box>
+          </Grid>
         </Box>
-        <Box>
-            <img src="https://lh3.googleusercontent.com/EbEX3AN4FC4pu3lsElAHCiksluOVU8OgkgtWC43-wmm_aHVq2D65FmEM97bPexilUAvlAY5_4ARH8Tb3RxQ=s14-rw" aria-hidden="true" alt="Rated for 3+"></img>
+        <Box mb={3}>
+            <img src={itm.ageImg} aria-hidden="true" alt="Rated for 3+"></img>
         </Box>  
-        <Box>          
-          <Octicon icon={Info} verticalAlign='middle' className="info" size={15} ml={5}/>
+        <Box mb={3}>          
+          <Octicon icon={Info} verticalAlign='middle' className="info" size={15} ml={5} mr={5}/>
           <Tooltip aria-label="This app is compatible with your device.">This app is compatible with your device.</Tooltip>
         </Box>         
         <Box>          
@@ -87,7 +87,7 @@ class Basic extends React.Component{
             <Octicon icon={Person} verticalAlign='top' size={15} bg="#6D827A" color="#6D827A" className="person"/>
             </Box>
             <Box></Box>
-            <Box p={3}>
+            <Box p={3} mt={9}>
               <ButtonPrimary>Install</ButtonPrimary>
             </Box>
           </Box>
