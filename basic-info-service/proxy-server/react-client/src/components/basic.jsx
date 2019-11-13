@@ -52,7 +52,7 @@ class Basic extends React.Component{
 <div>
     {this.state.products.map((itm)=>{
         return (
-          <Flex key = {itm.id} flexWrap="nowrap">
+          <Flex key = {itm.id} flexWrap="nowrap" mt={3}>
           <Box p={5}>
             <Avatar mb={4} src={itm.mainImage} size={150} />
           </Box>
@@ -76,7 +76,7 @@ class Basic extends React.Component{
           <Label m={1} bg="#FFFFFF" color="#33691e">Add to Wishlist</Label>
         </Box>      
           </Box>
-          <Box p={5}>
+          <Box p={5} verticalAlign='right'>
             <Box>
             <StarRatings
               rating={4.6}
