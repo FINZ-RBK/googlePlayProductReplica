@@ -23,7 +23,7 @@ var ProductSchema = new mongoose.Schema({
 });
 
 var ExampleData = {
-  userID: 1,
+  userID: 5,
   description: "ddddddddddddd",
   updateDate: Date.now()
 };
@@ -44,7 +44,7 @@ var save = function(data) {
   });
 };
 
-// save(ExampleData);
+save(ExampleData);
 //a function to find the disciption of this item
 var findOne = function(obj, callback) {
   Product.findOne(obj, "disciption", function(err, person) {
