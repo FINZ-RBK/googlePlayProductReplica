@@ -6,7 +6,7 @@ router.get("/", (req, res)=> {
     res.status(200).send("Home Page");
 });
   //Route to get all products
-  router.get('/products', function(req, res) {
+  router.get('/products', (req, res) =>{
     db.Product.find({})
     .then(function(dbProducts) {
       console.log(dbProducts);
@@ -18,7 +18,7 @@ router.get("/", (req, res)=> {
   });
   
   //Route for creating a new Product
-  router.post("/product", function(req, res) {
+  router.post("/product", (req, res) =>{
     db.Product.create(req.body)
     .then(function(dbProduct) {
       //After creating the product successfully, return it back to the client

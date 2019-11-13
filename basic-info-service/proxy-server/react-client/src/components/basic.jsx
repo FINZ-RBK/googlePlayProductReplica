@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import StarRatings from 'react-star-ratings';
 import Octicon, {Person, Info, Plus} from "@primer/octicons-react";
@@ -14,8 +13,6 @@ import {
   Link,
   Avatar
 } from '@primer/components';
-import { flex } from 'styled-system';
-
 class Basic extends React.Component{
   constructor(props) {
     super(props);
@@ -53,7 +50,7 @@ class Basic extends React.Component{
   render() {
     return(
 <div>
-    {this.state.products.map(function(itm){
+    {this.state.products.map((itm)=>{
         return (
           <Flex key = {itm.id} flexWrap="nowrap">
           <Box p={5}>
