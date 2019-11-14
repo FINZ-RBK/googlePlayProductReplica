@@ -30,7 +30,11 @@
     height: 100%;
 }
 
+html,
 body {
+    height: 100%;
+    width: 100%;
+    /* overflow: hidden; */
     background-color: #eeeeee;
 }
 
@@ -109,4 +113,20 @@ form.example::after {
     width: 50%;
     margin-right: 10px;
     display: inline-block;
+}
+
+.iframe-container {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+.iframe-container iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: block;
 }

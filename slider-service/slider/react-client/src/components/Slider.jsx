@@ -7,8 +7,8 @@ import Slider1 from "react-slick";
 class Slider extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { images: [] };
-    this.fetchTrans();
+    this.state = { images: [], empty: false };
+    // this.fetchTrans();
   }
   getImages() {
     var that = this;
@@ -19,8 +19,10 @@ class Slider extends React.Component {
       // "http://localhost:3002/retrive/?product_id=" + this.props.item_id,
       type: "GET",
       success: data => {
+        var empty = data.length === 0;
         that.setState({
-          images: data
+          images: data,
+          empty: empty
         });
       },
       error: err => {}
@@ -51,18 +53,33 @@ class Slider extends React.Component {
       slidesToScroll: 0.5,
       arrows: true
     };
-
-    return (
-      <span style={{ display: "block" }}>
-        <Slider1 {...settings}>
-          {this.state.images.map(image => (
-            <div key={image.id}>
-              <img src={image.url} height="370px"></img>
-            </div>
-          ))}
-        </Slider1>
-      </span>
-    );
+    if (this.state.empty) {
+      return (
+        <div
+          style={{
+            lineHeight: "370px",
+            fontFamily: "Arial",
+            fontSize: "2.2em",
+            color: "#ada5a5",
+            verticalAlign: "middle",
+            textAlign: "center"
+          }}
+        >
+          No images
+        </div>
+      );
+    } else
+      return (
+        <span style={{ display: "block" }}>
+          <Slider1 {...settings}>
+            {this.state.images.map(image => (
+              <div key={image.id}>
+                <img src={image.url} height="370px"></img>
+              </div>
+            ))}
+          </Slider1>
+        </span>
+      );
   }
 }
 export default Slider;
