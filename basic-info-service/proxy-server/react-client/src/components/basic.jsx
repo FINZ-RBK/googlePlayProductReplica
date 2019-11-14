@@ -13,15 +13,36 @@ import {
   Link,
   Avatar
 } from '@primer/components';
+import styled from 'styled-components';
+const NotFounded = styled.p`
+ font-family: Arial, Helvetica, sans-serif;
+ text-align: center;
+ font-size: 2.2em;
+ color: #ada5a5;
+ display: block;
+ text-overflow: ellipsis;
+ padding: 0.25em 1em;
+ padding: 5px;
+ height: 100%;
+`;
 class Basic extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {products:[]}
+    this.state = {products:[],
+                  rate: 0,
+                  total: 0}
     // this.fetchTrans();
     this.updateState = this.updateState.bind(this);
   }
   updateState(data) {
     this.setState({products: data});
+
+  }
+  updateRate(data) {
+    this.setState({rate: data});
+  }
+  updateTotal(data) {
+    this.setState({total: data});
   }
   getProduct(){
     var that = this;
@@ -38,19 +59,38 @@ class Basic extends React.Component{
         }
     });
   }
+  getRate(){
+    var that = this;
+    $.ajax({
+        url: 'https://basic-info-proxy.herokuapp.com/getRate/',
+        dataType: 'json',
+        data:  {"id": that.props.item_id} ,
+        success: function(data){
+            console.log("rate ajax", data);
+            console.log("rate parsed: ", JSON.parse(data).rate)
+            that.updateRate(JSON.parse(data).rate);
+            that.updateTotal(JSON.parse(data).total);
+        },
+        error: function(err){
+            console.log("err", err);
+        }
+    });
+  }
   componentDidUpdate(prevProps) {
     if(prevProps.item_id !== this.props.item_id) {
       this.fetchTrans();
     }
   }
   fetchTrans() {
-    // console.log(this.props.item_id);
     this.getProduct();
+    this.getRate();
   }
   render() {
     return(
+    
 <div>
-    {this.state.products.map((itm)=>{
+  {this.state.products.length !== 0 ? (
+    this.state.products.map((itm)=>{
         return (
           <Flex key = {itm.id} flexWrap="nowrap" mt={3}>
           <Box p={5}>
@@ -79,11 +119,11 @@ class Basic extends React.Component{
           <Box p={5} verticalAlign='right'>
             <Box>
             <StarRatings
-              rating={4.6}
+              rating={this.state.rate? this.state.rate: 0}
               starDimension="10px"
               starSpacing="1px"
               />
-            <Label m={1} bg="#FFFFFF" color="#6D827A">{itm.noInstallation}</Label>
+            <Label m={1} bg="#FFFFFF" color="#6D827A">{this.state.total? this.state.total: 0}</Label>
             <Octicon icon={Person} verticalAlign='top' size={15} bg="#6D827A" color="#6D827A" className="person"/>
             </Box>
             <Box></Box>
@@ -93,7 +133,8 @@ class Basic extends React.Component{
           </Box>
         </Flex>      
         )
-      })}   
+      })  
+      ) : (<Box><NotFounded>NOT FOUND</NotFounded></Box>)}
   </div>        
     );       
   }

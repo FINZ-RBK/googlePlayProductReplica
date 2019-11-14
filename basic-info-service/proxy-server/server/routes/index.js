@@ -2,11 +2,16 @@ const express = require("express");
 const router = express.Router();
 var request = require("request");
 var db = require("../../database/index.js");
+var bodyParser = require('body-parser');
+router.use(bodyParser.urlencoded({ extended: true}));
+router.use(bodyParser.json());
+
 router.get("/", (req, res)=> {
     res.status(200).send("Home Page");
 });
   //Route to get all products
   router.get('/products', (req, res) =>{
+    res.header("Access-Control-Allow-Origin", "*");
     db.Product.find({})
     .then(function(dbProducts) {
       console.log(dbProducts);
@@ -37,6 +42,22 @@ router.get("/", (req, res)=> {
         res.send(data);
     });
 
+  });
+
+  router.get("/getRate" ,(req, res) =>{
+    res.header("Access-Control-Allow-Origin", "*");
+    request("https://protected-plains-93575.herokuapp.com/reviewsApi/getRate/" + req.body.id, function(
+      error,
+      response,
+      body
+  ) {
+      if (!error && response.statusCode === 200) {
+          console.log("rate", body);
+          res.json(body);
+      } else {
+          res.end("err:" + error);
+      }
+  });
   });
 
 router.get("/basic", (req, res) => {
