@@ -128,7 +128,7 @@ class Basic extends React.Component{
             </Box>
             <Box></Box>
             <Box p={3} mt={9}>
-              <ButtonPrimary>Install</ButtonPrimary>
+              <ButtonPrimary width="100px">Install</ButtonPrimary>
             </Box>
           </Box>
         </Flex>      
