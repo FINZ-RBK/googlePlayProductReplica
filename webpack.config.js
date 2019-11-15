@@ -1,11 +1,12 @@
 var path = require('path');
 var SRC_DIR = path.join(__dirname, '/react-client/src');
-var DIST_DIR = path.join(__dirname, '/react-client/dist');
+var DIST_DIR = path.join(__dirname, '/react-client/dist/');
 
 module.exports = {
+ 
   entry: `${SRC_DIR}/index.jsx`,
   output: {
-    filename: 'bundle.js',
+    chunkFilename: '[name][chunkhash].js',
     path: DIST_DIR
   },
   module : {
@@ -20,4 +21,17 @@ module.exports = {
       }
     ]
   }
+,
+  optimization = {
+    ...commonConfig.optimization,
+    splitChunks: {
+        cacheGroups: {
+            commons: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendors',
+                chunks: 'async'
+            }
+        }
+    }
+}
 };
