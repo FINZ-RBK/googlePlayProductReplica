@@ -62,6 +62,20 @@ app.get("/Discrption", function(req, res) {
         }
     });
 });
+app.get("/RelatedItems", function(req, res) {
+    request("https://boiling-journey-53136.herokuapp.com/bundle.js", function(
+        error,
+        response,
+        body
+    ) {
+        if (!error && response.statusCode === 200) {
+            console.log(body);
+            res.send(body);
+        } else {
+            res.end("err:" + error);
+        }
+    });
+});
 app.get("/poll", function(req, res) {
     request("https://protected-plains-93575.herokuapp.com/", function(
         error,
