@@ -23,13 +23,13 @@ class PollsCount extends React.Component {
             <Box width="100%" >
                 <Box width="100%" height="50px">
                     <Center height="20px">
-                        <Heading className="rate" >{(rate) ? rate : 4.6}</Heading>
+                        <Heading className="rate" >{(rate) ? rate.toFixed(1) : 0}</Heading>
                     </Center>
                 </Box>
                 <Box width="100%" >
                     <Center height="20px">
                         <StarRatings
-                            rating={(rate) ? rate : 4.6}
+                            rating={(rate) ? rate : 0}
                             starDimension="20px"
                             starSpacing="5px"
                         />
@@ -43,7 +43,7 @@ class PollsCount extends React.Component {
                                 <Text ><CircleOcticon icon={Person} size={16} bg="white" color="#6A6A6A" verticalAlign="middle" /></Text>
                             </Box>
                             <Box>
-                                <Text >{(total) ? total : "267"} Total</Text>
+                                <Text >{(total) ? total : "0"} Total</Text>
                             </Box>
                         </Flex>
                     </Center>

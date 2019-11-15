@@ -7,19 +7,19 @@ module.exports = (app) => {
         reviewDb.Review.find({ productId: id }).exec()
             .then(data => {
                 result.comments = data;
-                reviewDb.Review.find({ rate: 1 }).exec()
+                reviewDb.Review.find({ productId: id, rate: 1 }).exec()
                     .then(data => {
                         result.ones = data.length;
-                        reviewDb.Review.find({ rate: 2 }).exec()
+                        reviewDb.Review.find({ productId: id, rate: 2 }).exec()
                             .then(data => {
                                 result.tows = data.length;
-                                reviewDb.Review.find({ rate: 3 }).exec()
+                                reviewDb.Review.find({ productId: id, rate: 3 }).exec()
                                     .then(data => {
                                         result.threes = data.length;
-                                        reviewDb.Review.find({ rate: 4 }).exec()
+                                        reviewDb.Review.find({ productId: id, rate: 4 }).exec()
                                             .then(data => {
                                                 result.fours = data.length;
-                                                reviewDb.Review.find({ rate: 5 }).exec()
+                                                reviewDb.Review.find({ productId: id, rate: 5 }).exec()
                                                     .then(data => {
                                                         result.fives = data.length;
                                                         res.json(result);
