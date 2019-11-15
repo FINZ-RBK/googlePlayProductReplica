@@ -62,15 +62,14 @@ class Basic extends React.Component{
   }
   getRate(){
     var that = this;
+    var id = window.location.href.split("=")[1];
     $.ajax({
-        url: 'https://basic-info-proxy.herokuapp.com/getRate/',
-        dataType: 'json',
-        data:  {"id": that.props.item_id} ,
+        url: 'https://protected-plains-93575.herokuapp.com/reviewsApi/getRate/'+id,
         success: function(data){
             console.log("rate ajax", data);
-            console.log("rate parsed: ", JSON.parse(data).rate)
-            that.updateRate(JSON.parse(data).rate);
-            that.updateTotal(JSON.parse(data).total);
+            console.log("rate parsed: ", data.rate)
+            that.updateRate(data.rate);
+            that.updateTotal(data.total);
         },
         error: function(err){
             console.log("err", err);

@@ -46,6 +46,7 @@ router.get("/", (req, res)=> {
 
   router.get("/getRate" ,(req, res) =>{
     res.header("Access-Control-Allow-Origin", "*");
+    console.log('heloo',req.body.id);
     request("https://protected-plains-93575.herokuapp.com/reviewsApi/getRate/" + req.body.id, function(
       error,
       response,
