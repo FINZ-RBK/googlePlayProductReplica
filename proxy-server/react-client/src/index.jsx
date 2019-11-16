@@ -41,6 +41,11 @@ class App extends React.Component {
               ></iframe>
             </div>
           </div>
+<<<<<<< HEAD
+          <div id="Discrption">description proxy</div>
+          <div className="box" id="poll">
+            poll proxy
+=======
         </div>
         <div className="column right">
           <div>
@@ -68,6 +73,7 @@ class App extends React.Component {
 
   
             </iframe>
+>>>>>>> 3f6977f07b903c72048c2a72f3bfcfa44be17c27
           </div>
         </div>
       </div>

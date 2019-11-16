@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "react-dev": "webpack -p --watch",
-        "start": "node server/index.js"
+        "start": "node server/index.js",
+        "heroku-postbuild": "webpack -p"
     },
     "author": "",
     "license": "ISC",

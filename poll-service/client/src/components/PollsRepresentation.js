@@ -42,19 +42,19 @@ class PollsRepresentation extends React.Component {
                 </Box>
                 <Box width="97%">
                     <Box pt={1} bg="white" >
-                        <ProgressBar progress={(onesPercent) ? onesPercent : 100} className="progressBar" bg="#7CC9A2" />
+                        <ProgressBar progress={(onesPercent) ? onesPercent : 0} className="progressBar" bg="#7CC9A2" />
                     </Box>
                     <Box pt={1} width="100%">
-                        <ProgressBar progress={(twosPercent) ? twosPercent : 60} className="progressBar" bg="#9ace6a" />
+                        <ProgressBar progress={(twosPercent) ? twosPercent : 0} className="progressBar" bg="#9ace6a" />
                     </Box >
                     <Box pt={1} width="100%">
-                        <ProgressBar progress={(threesPercent) ? threesPercent : 50} className="progressBar" bg="#ffcf02" />
+                        <ProgressBar progress={(threesPercent) ? threesPercent : 0} className="progressBar" bg="#ffcf02" />
                     </Box>
                     <Box pt={1} width="100%">
-                        <ProgressBar progress={(foursPercent) ? foursPercent : 30} className="progressBar" bg="#737373" />
+                        <ProgressBar progress={(foursPercent) ? foursPercent : 0} className="progressBar" bg="#737373" />
                     </Box>
                     <Box pt={1} width="100%">
-                        <ProgressBar progress={(fivesPercent) ? fivesPercent : 20} className="progressBar" bg="#ff6f31" />
+                        <ProgressBar progress={(fivesPercent) ? fivesPercent : 0} className="progressBar" bg="#ff6f31" />
                     </Box>
                 </Box>
 
