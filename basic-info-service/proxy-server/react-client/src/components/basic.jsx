@@ -104,9 +104,9 @@ class Basic extends React.Component{
               </Box>
               <Box pb={2}>
                 <Flex>
-                  <Box width="25%"><span><Link href={itm.descURL} color="#558045" fontSize="15px" fontWeight="700" fontFamily="Helvetica">{itm.description}</Link></span></Box>
+                  <Box width="30%"><span><Link href={itm.descURL} color="#558045" fontSize="15px" fontWeight="700" fontFamily="Helvetica">{itm.description}</Link></span></Box>
                   <Box width="25%" pl={3}><span><Link href={itm.catURL} color="#558045" fontSize="15px" fontWeight="700" fontFamily="Helvetica">{itm.category}</Link></span></Box>
-                  <Box width="50%" pl={20} style={{textAlign: 'right', verticalAlign: "right"}} pr={4}> 
+                  <Box width="45%" pl={20} style={{textAlign: 'right', verticalAlign: "right"}} pr={4}> 
                     <StarRatings
                     rating={this.state.rate? this.state.rate: 0}
                     starDimension="10px"
