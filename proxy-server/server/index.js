@@ -18,8 +18,9 @@ app.use(express.static(__dirname + "/../react-client/dist"));
 // UNCOMMENT FOR ANGULAR
 // app.use(express.static(__dirname + '/../angular-client'));
 // app.use(express.static(__dirname + '/../node_modules'));
-app.get("/slider", function(req, res) {
-    request("https://slider-service-module.herokuapp.com/bundle.js", function(
+
+app.get("/slider", function (req, res) {
+    request("https://slider-service-module.herokuapp.com/bundle.js", function (
         error,
         response,
         body
@@ -33,8 +34,8 @@ app.get("/slider", function(req, res) {
     });
 });
 
-app.get("/proxy-basic", function(req, res) {
-    request("https://basic-info-proxy.herokuapp.com/bundle.js", function(
+app.get("/proxy-basic", function (req, res) {
+    request("https://basic-info-proxy.herokuapp.com/bundle.js", function (
         error,
         response,
         body
@@ -48,8 +49,8 @@ app.get("/proxy-basic", function(req, res) {
     });
 });
 
-app.get("/Discrption", function(req, res) {
-    request("https://agile-waters-08360.herokuapp.com/bundle.js", function(
+app.get("/Discrption", function (req, res) {
+    request("https://agile-waters-08360.herokuapp.com/bundle.js", function (
         error,
         response,
         body
@@ -62,8 +63,8 @@ app.get("/Discrption", function(req, res) {
         }
     });
 });
-app.get("/poll", function(req, res) {
-    request("https://protected-plains-93575.herokuapp.com/", function(
+app.get("/RelatedItems", function (req, res) {
+    request("https://boiling-journey-53136.herokuapp.com/bundle.js", function (
         error,
         response,
         body
@@ -76,11 +77,39 @@ app.get("/poll", function(req, res) {
         }
     });
 });
-app.get("/", async function(req, res) {
+app.get("/poll", function (req, res) {
+    request("https://protected-plains-93575.herokuapp.com/", function (
+        error,
+        response,
+        body
+    ) {
+        if (!error && response.statusCode === 200) {
+            console.log(body);
+            res.send(body);
+        } else {
+            res.end("err:" + error);
+        }
+    });
+});
+app.get("/poll", function (req, res) {
+    request("https://protected-plains-93575.herokuapp.com/bundle.js", function (
+        error,
+        response,
+        body
+    ) {
+        if (!error && response.statusCode === 200) {
+            console.log(body);
+            res.send(body);
+        } else {
+            res.end("err:" + error);
+        }
+    });
+});
+app.get("/", async function (req, res) {
     console.log("user");
     res.render("index");
     console.log("req.query");
-    request("https://slider-service.herokuapp.com", function(
+    request("https://slider-service.herokuapp.com", function (
         error,
         response,
         body
@@ -93,6 +122,6 @@ app.get("/", async function(req, res) {
         }
     });
 });
-app.listen(port, function() {
+app.listen(port, function () {
     console.log("listening on port 3009!");
 });
