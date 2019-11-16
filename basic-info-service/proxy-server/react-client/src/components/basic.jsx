@@ -104,9 +104,9 @@ class Basic extends React.Component{
               </Box>
               <Box pb={2}>
                 <Flex>
-                  <Box width="10%"><span><Link href={itm.descURL} color="#558045" fontSize="15px" fontWeight="700" fontFamily="Helvetica">{itm.description}</Link></span></Box>
-                  <Box width="10%" pl={3}><span><Link href={itm.catURL} color="#558045" fontSize="15px" fontWeight="700" fontFamily="Helvetica">{itm.category}</Link></span></Box>
-                  <Box width="80%" pl={20} style={{textAlign: 'right', verticalAlign: "right"}} pr={4}> 
+                  <Box width="25%"><span><Link href={itm.descURL} color="#558045" fontSize="15px" fontWeight="700" fontFamily="Helvetica">{itm.description}</Link></span></Box>
+                  <Box width="25%" pl={3}><span><Link href={itm.catURL} color="#558045" fontSize="15px" fontWeight="700" fontFamily="Helvetica">{itm.category}</Link></span></Box>
+                  <Box width="50%" pl={20} style={{textAlign: 'right', verticalAlign: "right"}} pr={4}> 
                     <StarRatings
                     rating={this.state.rate? this.state.rate: 0}
                     starDimension="10px"
@@ -124,7 +124,7 @@ class Basic extends React.Component{
               <Box pb={2}>          
                 <Octicon icon={Info} verticalAlign='middle' className="info" size={15} ml={5} mr={5}/>
                 {/* <Text fontSize={13} fontSize="Helvetica" fontWeight={300} color="#737373"></Text> */}
-                <label style={{fontFamily:'Helvetica', fontSize:"12px", color:"#b1b1b1"}}>This app is compatible with your device.</label>
+                <label style={{fontFamily:'Helvetica', fontSize:"12px", color:"#b1b1b1"}}>{itm.compact}</label>
 
               </Box>   
 
