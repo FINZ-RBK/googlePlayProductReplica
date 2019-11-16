@@ -1,0 +1,46 @@
+{
+  "name": "proxy-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run jest -- --watch",
+    "start": "node server/index.js",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js"
+  },
+  "author": "Fatoom M Fayad",
+  "license": "ISC",
+  "dependencies": {
+    "@primer/components": "^15.0.1",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-router": "0.0.1",
+    "jquery": "^3.4.1",
+    "mongoose": "^5.7.8",
+    "nodemon": "^1.19.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-octicons": "^0.2.0",
+    "react-router": "^5.1.2",
+    "react-star-ratings": "^2.3.0",
+    "request": "^2.88.0",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.16.0",
+    "jest": "^24.9.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
