@@ -1,1 +1,1 @@
-web: node proxy-server/server/index.js
+web: node index.js
