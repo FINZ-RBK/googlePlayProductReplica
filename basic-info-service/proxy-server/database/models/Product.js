@@ -12,7 +12,10 @@ var ProductSchema = new Schema({
     },
     description: String,
     mainImage: String,
-    updateDate: Date,
+    updateDate: {
+        type: Date,
+        default: Date.now
+    },
     size: String,
     noInstallation: Number,
     version: String,
@@ -20,16 +23,13 @@ var ProductSchema = new Schema({
     suitableAge: Number,
     permisssions: String,
     report: String,
-    owner: {
-        type: Schema.Types.ObjectId,
-        ref: "User" //refernces userID
-    },
+    owner: Number,
     website: String,
     contactEmail: String,
     privacyPolicy: String
 });
 
 //Create model from the Schema
-var Product = mongoose.model("Product", ProductSchema);
+var Product = mongoose.model("products", ProductSchema);
 
 module.exports = Product;

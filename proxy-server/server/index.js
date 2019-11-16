@@ -9,14 +9,18 @@ const port = process.env.PORT || 3009;
 var app = express();
 
 // UNCOMMENT FOR REACT
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.use(express.static(__dirname + "/../react-client/dist"));
 // app.use("/details", express.static(__dirname + "/../react-client/dist"));
 
 // UNCOMMENT FOR ANGULAR
 // app.use(express.static(__dirname + '/../angular-client'));
 // app.use(express.static(__dirname + '/../node_modules'));
+
 app.get("/slider", function (req, res) {
-    request("https://slider-service.herokuapp.com/bundle.js", function (
+    request("https://slider-service-module.herokuapp.com/bundle.js", function (
         error,
         response,
         body
@@ -47,6 +51,34 @@ app.get("/proxy-basic", function (req, res) {
 
 app.get("/Discrption", function (req, res) {
     request("https://agile-waters-08360.herokuapp.com/bundle.js", function (
+        error,
+        response,
+        body
+    ) {
+        if (!error && response.statusCode === 200) {
+            // console.log(body);
+            res.send(body);
+        } else {
+            res.end("err:" + error);
+        }
+    });
+});
+app.get("/RelatedItems", function (req, res) {
+    request("https://boiling-journey-53136.herokuapp.com/bundle.js", function (
+        error,
+        response,
+        body
+    ) {
+        if (!error && response.statusCode === 200) {
+            console.log(body);
+            res.send(body);
+        } else {
+            res.end("err:" + error);
+        }
+    });
+});
+app.get("/poll", function (req, res) {
+    request("https://protected-plains-93575.herokuapp.com/", function (
         error,
         response,
         body

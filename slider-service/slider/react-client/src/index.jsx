@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       items: [],
-      id: 1
+      id: 0
     };
   }
 
