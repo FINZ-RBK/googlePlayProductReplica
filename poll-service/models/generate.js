@@ -1,27 +1,82 @@
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+var faker = require('faker');
+var mongoose = require("mongoose");
+const mogoUrl = require('../config/keys').mongoUrl;
+mongoose.Promise = global.Promise;
+// mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/reviews`);
+mongoose.connect(mogoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
-function getRandomDate() {
-    // aprox nr of days since 1970 untill 2000: 30years * 365 days
-    var nr_days1 = 30 * 365;
-    // aprox nr of days since 1950 untill 1970: 20years * 365 days
-    var nr_days2 = -20 * 365;
+//GET the Schema constructor
 
-    // milliseconds in one day
-    var one_day = 1000 * 60 * 60 * 24
+var Schema = mongoose.Schema;
 
-    // get a random number of days passed between 1950 and 2000
-    var days = getRandomInt(nr_days2, nr_days1);
+//Using Schema constructor, create a UserSchema
+var ReviewSchema = new Schema({
+    productId: {
+        type: Number,
+        required: true
+    },
+    productName: {
+        type: String,
+        required: true
+    },
+    userAvatar: {
+        type: String,
+        required: true
+    },
+    userName: {
+        type: String,
+        required: true
+    },
+    userId: {
+        type: Number,
+        required: true
+    },
 
-    return new Date(days * one_day)
-}
+    rate: {
+        type: Number,
+        min: 1,
+        max: 5,
+        required: true
+    },
+    comment: {
+        type: String,
+        required: true
+    },
+    state: {
+        type: Number,
+        required: true
+    },
+    likesCount: {
+        type: Number,
+        required: true
+    },
+    inserted: {
+        type: Date,
+        required: true
+    }
+});
 
-for (var i = 1; i <= 10000; i++) {
-    db.test.insert(
-        {
-            name: "name" + i,
-            birthday: getRandomDate()
-        }
-    )
+//Create model from the Schema
+var Review = mongoose.model("Review", ReviewSchema);
+
+
+
+
+for (var i = 1; i <= 10; i++) {
+    for (var j = 1; j <= 10; j++) {
+        var item = new Review({
+            productId: i,
+            productName: faker.commerce.productName(),
+            userAvatar: faker.internet.avatar(),
+            userName: faker.internet.userName(),
+            userId: faker.random.number(),
+            rate: Math.floor((Math.random() * ((5 - 1) + 1)) + 1),
+            comment: faker.lorem.paragraph(),
+            state: 0,
+            likesCount: faker.random.number(),
+            inserted: faker.date.past()
+        });
+        console.log(item);
+        item.save();
+    }
 }

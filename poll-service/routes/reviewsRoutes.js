@@ -4,7 +4,7 @@ module.exports = (app) => {
     app.get('/reviewsApi/reviewById/:id', function (req, res) {
         const id = req.params.id;
         var result = {};
-        reviewDb.Review.find({ productId: id }).exec()
+        reviewDb.Review.find({ productId: id }).limit(4).exec()
             .then(data => {
                 result.comments = data;
                 reviewDb.Review.find({ productId: id, rate: 1 }).exec()
