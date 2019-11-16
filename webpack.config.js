@@ -1,36 +1,37 @@
-const webpack = require("webpack");
-const path = require("path");
-const config = {
-  optimization: {
-    splitChunks: {
-      minSize: 300000,
-      cacheGroups: {
-        default: false
-      }
-    }
-  },
-  entry: ["react-hot-loader/patch", path.resolve(__dirname, "./src/app.jsx")],
+var path = require('path');
+var SRC_DIR = path.join(__dirname, '/react-client/src');
+var DIST_DIR = path.join(__dirname, '/react-client/dist/');
+
+module.exports = {
+ 
+  entry: `${SRC_DIR}/index.jsx`,
   output: {
-    path: path.resolve(__dirname, "public"),
-    filename: "bundle.js"
+    chunkFilename: '[name][chunkhash].js',
+    path: DIST_DIR
   },
-  module: {
-    rules: [
+  module : {
+    loaders : [
       {
-        test: /\.(js|jsx)$/,
-        use: "babel-loader",
-        exclude: /node_modules/
+        test : /\.jsx?/,
+        include : SRC_DIR,
+        loader : 'babel-loader',      
+        query: {
+          presets: ['react', 'es2015']
+       }
       }
     ]
-  },
-  resolve: {
-    extensions: [".js", ".jsx"],
-    alias: {
-      "react-dom": "@hot-loader/react-dom"
-    }
-  },
-  devServer: {
-    contentBase: "./public"
   }
+,
+  optimization = {
+    ...commonConfig.optimization,
+    splitChunks: {
+        cacheGroups: {
+            commons: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendors',
+                chunks: 'async'
+            }
+        }
+    }
+}
 };
-module.exports = config;
