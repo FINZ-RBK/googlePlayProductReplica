@@ -30,6 +30,39 @@ module.exports = (app) => {
                     });
             });
     });
+    app.get('/reviewsApi/getRate/:id', function (req, res) {
+        res.header("Access-Control-Allow-Origin", "*");
+        const id = req.params.id;
+        var result = {};
+
+        reviewDb.Review.find({ productId: id, rate: 1 }).exec()
+            .then(data => {
+                result.ones = data.length;
+                reviewDb.Review.find({ productId: id, rate: 2 }).exec()
+                    .then(data => {
+                        result.tows = data.length;
+                        reviewDb.Review.find({ productId: id, rate: 3 }).exec()
+                            .then(data => {
+                                result.threes = data.length;
+                                reviewDb.Review.find({ productId: id, rate: 4 }).exec()
+                                    .then(data => {
+                                        result.fours = data.length;
+                                        reviewDb.Review.find({ productId: id, rate: 5 }).exec()
+                                            .then(data => {
+                                                result.fives = data.length;
+                                                total = result.ones + result.tows + result.threes + result.fours + result.fives;
+                                                rate = ((result.ones * 1) + (result.tows * 2) + (result.threes * 3) + (result.fours * 4) + (result.fives * 5)) / total;
+                                                res.json({
+                                                    total: total,
+                                                    rate: rate
+                                                });
+                                            });
+                                    });
+                            });
+                    });
+            });
+
+    });
     app.get('/reviewsApi/reviewByName/:name', function (req, res) {
 
         const reviewName = req.params.name;
