@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const URI = process.env.mongoURI || "mongodb+srv://fatoom:fatoom@cluster0-hft43.mongodb.net/basic-info?retryWrites=true&w=majority";
+const URI = process.env.mongoURI || "mongodb+srv://<user>:<pass>@cluster0-hft43.mongodb.net/basic-info?retryWrites=true&w=majority";
 mongoose.connect(URI);
 
 var db = mongoose.connection;
