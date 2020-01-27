@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, Box, Link } from "@primer/components";
-
+// the footer for the Poll Service
 var Footer = () => (
     <Flex flexWrap="nowrap" alignItems="center">
         <Box width="35%" >  </Box>
@@ -12,4 +12,5 @@ var Footer = () => (
         <Box width="35%" >  </Box>
     </Flex>
 );
+
 export default Footer;

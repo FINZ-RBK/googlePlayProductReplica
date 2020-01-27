@@ -1,9 +1,9 @@
 import React from "react";
 import { Heading, Flex, Box, CircleOcticon, Link } from "@primer/components";
 import { Info } from "@primer/octicons-react";
+// The Header for the Poll Service
 var Header = () => (
     <Flex flexWrap="nowrap">
-
         <Box width="80%" >
             <Heading fontSize={1} mb={2}>REVIEWS</Heading>
         </Box>
@@ -19,7 +19,7 @@ var Header = () => (
                 </Box>
             </Flex>
         </Box>
-
     </Flex>
 );
+
 export default Header;

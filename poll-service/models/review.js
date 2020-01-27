@@ -1,10 +1,10 @@
+// The Review Model 
 var mongoose = require("mongoose");
 
 //GET the Schema constructor
-
 var Schema = mongoose.Schema;
 
-//Using Schema constructor, create a UserSchema
+//Using Schema constructor, create a ReviewSchema
 var ReviewSchema = new Schema({
     productId: {
         type: Number,
@@ -26,7 +26,6 @@ var ReviewSchema = new Schema({
         type: Number,
         required: true
     },
-
     rate: {
         type: Number,
         min: 1,
@@ -51,7 +50,7 @@ var ReviewSchema = new Schema({
     }
 });
 
-//Create model from the Schema
+//Create model from the Schema and export it
 var Review = mongoose.model("Review", ReviewSchema);
 
 module.exports.Review = Review; 

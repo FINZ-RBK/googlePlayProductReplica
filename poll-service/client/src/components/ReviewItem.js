@@ -4,15 +4,18 @@ import { Link, Flex, Box, Avatar, Text } from "@primer/components";
 import Octicon, { KebabVertical, Thumbsup } from "@primer/octicons-react";
 import StarRatings from "react-star-ratings";
 import Center from "react-center";
+// The review item part of the reviews panel in the Poll Service
 class ReviewItem extends React.Component {
+
     constructor(props) {
         super(props);
-
     }
+
     render() {
+
         var date = new Date(this.props.item.inserted);
-        console.log(date);
         var stringDate = date.getMonth() + " " + date.getDate() + ", " + date.getFullYear();
+
         return (
             <Flex flexWrap="nowrap" width="100%">
                 <Box width="9%" >
@@ -59,11 +62,11 @@ class ReviewItem extends React.Component {
                         <Box>
                             <Link ><Octicon icon={KebabVertical} verticalAlign='top' size={32} bg="white" color="#6A6A6A" /></Link>
                         </Box>
-
                     </Flex>
                 </Box>
             </Flex>
         );
     }
 }
+
 export default ReviewItem;

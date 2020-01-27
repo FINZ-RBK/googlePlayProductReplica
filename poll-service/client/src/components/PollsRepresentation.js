@@ -1,14 +1,13 @@
 import React from "react";
 import './../App.css';
-
 import { Box, Flex, Text, ProgressBar } from "@primer/components";
-
+// The poll graphic representation part of the Poll Service
 class PollsRepresentation extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(props)
     }
+
     render() {
 
         var total = this.props.data.ones + this.props.data.tows + this.props.data.threes + this.props.data.fours + this.props.data.fives;
@@ -17,7 +16,6 @@ class PollsRepresentation extends React.Component {
         var threesPercent = (this.props.data.threes / total) * 100;
         var foursPercent = (this.props.data.fours / total) * 100;
         var fivesPercent = (this.props.data.fives / total) * 100;
-        console.log(this.props.data.ones);
 
         return (
 
@@ -38,7 +36,6 @@ class PollsRepresentation extends React.Component {
                     <Box >
                         <Text fontSize="12px"> 5</Text>
                     </Box>
-
                 </Box>
                 <Box width="97%">
                     <Box pt={1} bg="white" >
@@ -57,9 +54,9 @@ class PollsRepresentation extends React.Component {
                         <ProgressBar progress={(fivesPercent) ? fivesPercent : 0} className="progressBar" bg="#ff6f31" />
                     </Box>
                 </Box>
-
             </Flex>
         );
     }
 }
+
 export default PollsRepresentation;

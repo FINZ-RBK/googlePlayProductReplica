@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Poll Service",
+  "name": "Google Play Product Poll Service Replica",
   "icons": [
     {
       "src": "favicon.ico",

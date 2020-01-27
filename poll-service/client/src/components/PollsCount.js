@@ -4,14 +4,18 @@ import { Heading, Flex, Box, CircleOcticon, Text } from "@primer/components";
 import { Person } from "@primer/octicons-react";
 import StarRatings from "react-star-ratings";
 import Center from "react-center";
-
+// The polls count part of the Poll Service
 class PollsCount extends React.Component {
+
     constructor(props) {
         super(props);
     }
+
     render() {
+
         var total;
         var rate;
+
         if (Object.keys(this.props.data).length !== 0) {
             console.log(this.props)
             total = this.props.data.ones + this.props.data.tows + this.props.data.threes + this.props.data.fours + this.props.data.fives;
@@ -19,6 +23,7 @@ class PollsCount extends React.Component {
             console.log('total', total);
             console.log('rate', rate);
         }
+
         return (
             <Box width="100%" >
                 <Box width="100%" height="50px">
@@ -34,7 +39,6 @@ class PollsCount extends React.Component {
                             starSpacing="5px"
                         />
                     </Center>
-
                 </Box>
                 <Box width="100%" >
                     <Center height="20px">
@@ -47,13 +51,10 @@ class PollsCount extends React.Component {
                             </Box>
                         </Flex>
                     </Center>
-
                 </Box>
             </Box>
-
-
-
         );
     }
 }
+
 export default PollsCount;
