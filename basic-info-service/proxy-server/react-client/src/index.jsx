@@ -14,10 +14,10 @@ componentDidMount(){
   if(path.indexOf("itemid") >= 0) {
     var startIndex = path.indexOf("=");
     this.setState({
+      //fetch the id from the URL 
       id: path.substring(startIndex + 1)
     });
   }
-  console.log(path.substring(startIndex + 1));
 }
 render() {
   return (
