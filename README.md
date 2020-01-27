@@ -30,15 +30,11 @@ Creating service oriented application for a product page of a famous website.
   - each module is an appliction by its own with its own database and proxy server.
   - create APIs between the modules to communicate the shared data.
 
-## Please Support FINZ Organization ##
-
 ## How to Get Started ##
 - fork the project
 - clone it .
 - install npm packages using (npm install). for each module and for the proxy module
 - start the servers of each module using the specified port in each module server javascript file .
 
-## Stay Tuned ##
-
-## Continue watching our repos for upcomings ##
+Continue watching our repos for upcomings
  
