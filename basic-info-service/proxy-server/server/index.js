@@ -1,7 +1,6 @@
 var express = require('express');
 var path = require("path");
 var bodyParser = require('body-parser');
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 
 const routes = require("./routes/index");
 const port = process.env.PORT || 3001;
@@ -12,6 +11,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname , '../react-client/dist')));
+//Allow the express server to use routes
 app.use("/", routes);
 
 //Start the server 
