@@ -14,7 +14,6 @@ router.get("/", (req, res)=> {
     res.header("Access-Control-Allow-Origin", "*");
     db.Product.find({})
     .then(function(dbProducts) {
-      console.log(dbProducts);
       res.json(dbProducts);
     })
     .catch(function(err) {
@@ -34,26 +33,25 @@ router.get("/", (req, res)=> {
     })
   });
   
+//Route to get product based on the given query
   router.get("/getProduct" ,(req, res) =>{
     res.header("Access-Control-Allow-Origin", "*");
-    console.log(req.query);
     db.retriveData(req.query, (err, data) => {
-        console.log(data);
         res.send(data);
     });
 
   });
 
-  router.get("/getRate" ,(req, res) =>{
+//Route to get rate based on the given query
+router.get("/getRate" ,(req, res) =>{
     res.header("Access-Control-Allow-Origin", "*");
-    console.log('heloo',req.body.id);
+    //get rate from poll service using a given id
     request("https://protected-plains-93575.herokuapp.com/reviewsApi/getRate/" + req.body.id, function(
       error,
       response,
       body
   ) {
       if (!error && response.statusCode === 200) {
-          console.log("rate", body);
           res.json(body);
       } else {
           res.end("err:" + error);
@@ -61,6 +59,7 @@ router.get("/", (req, res)=> {
   });
   });
 
+//Route to view the basic info of the product
 router.get("/basic", (req, res) => {
     request("http://localhost:3001/bundle.js", (error, response, body) => {
         if(!error && response.statusCode === 200) {
