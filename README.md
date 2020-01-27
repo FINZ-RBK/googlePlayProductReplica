@@ -18,7 +18,7 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Introduction ##
-Is is a Full stack web application that replicates google play product page , it is built with the MERN approach ,
+It is a Full stack web application that replicates google play product page , it is built with the MERN approach ,
 each part of the page is designed as full separate application, all the parts are connected to each other on the main
 page using a proxy server and each part is communicating with the others using specific API's to get shared data. 
 
