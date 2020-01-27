@@ -1,3 +1,4 @@
+//import required libraries
 import React from 'react';
 import $ from 'jquery';
 import StarRatings from 'react-star-ratings';
@@ -15,6 +16,7 @@ import {
 } from '@primer/components';
 import styled from 'styled-components';
 import { right } from 'styled-system';
+// styling
 const NotFounded = styled.p`
  font-family: Arial, Helvetica, sans-serif;
  text-align: center;
@@ -26,25 +28,32 @@ const NotFounded = styled.p`
  padding: 5px;
  height: 100%;
 `;
+// Basic component 
 class Basic extends React.Component{
   constructor(props) {
     super(props);
     this.state = {products:[],
                   rate: 0,
                   total: 0}
-    // this.fetchTrans();
+   //bind updateState function to the component
     this.updateState = this.updateState.bind(this);
   }
+  
+  //function to set state of the product
   updateState(data) {
     this.setState({products: data});
-
   }
+  
+  //function to update the rate of the product depending on the data retrieved from the response
   updateRate(data) {
     this.setState({rate: data});
   }
+  
+  //function to update the total downloads of the product depending on the data retrieved from the response
   updateTotal(data) {
     this.setState({total: data});
   }
+  // Function to get product details using ajax request
   getProduct(){
     var that = this;
     $.ajax({
@@ -52,7 +61,6 @@ class Basic extends React.Component{
         dataType: 'json',
         data: that.state.products,
         success: function(data){
-            console.log("succes", data);
             that.updateState(data);
         },
         error: function(err){
@@ -60,14 +68,13 @@ class Basic extends React.Component{
         }
     });
   }
+  // Function to get product rate using ajax request to poll service server
   getRate(){
     var that = this;
     var id = window.location.href.split("=")[1];
     $.ajax({
         url: 'https://protected-plains-93575.herokuapp.com/reviewsApi/getRate/'+id,
         success: function(data){
-            console.log("rate ajax", data);
-            console.log("rate parsed: ", data.rate)
             that.updateRate(data.rate);
             that.updateTotal(data.total);
         },
@@ -76,18 +83,21 @@ class Basic extends React.Component{
         }
     });
   }
+  
+  //Get product details of the new element
   componentDidUpdate(prevProps) {
     if(prevProps.item_id !== this.props.item_id) {
       this.fetchTrans();
     }
   }
+  //Function to call getProduct and getRate to fetch data for the new product
   fetchTrans() {
     this.getProduct();
     this.getRate();
   }
+  //render page 
   render() {
-    return(
-       
+    return(       
 <div>
   {this.state.products.length !== 0 ? (
     this.state.products.map((itm)=>{
