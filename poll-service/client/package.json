@@ -6,7 +6,7 @@
     "@primer/components": "^15.0.1",
     "@primer/octicons-react": "^9.2.0",
     "@primer/primitives": "^2.0.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "http-proxy-middleware": "^0.20.0",
